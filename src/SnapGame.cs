@@ -26,6 +26,16 @@ namespace CardGames
 			{
 				myGame.Start ();
 			}
+			if (myGame.IsStarted) {
+				if (SwinGame.KeyTyped (KeyCode.vk_LSHIFT) &&
+				    SwinGame.KeyTyped (KeyCode.vk_RSHIFT)) {
+					
+				} else if (SwinGame.KeyTyped (KeyCode.vk_LSHIFT)) {
+					myGame.PlayerHit (0);
+				} else if (SwinGame.KeyTyped (KeyCode.vk_RSHIFT)) {
+					myGame.PlayerHit (1);
+				}
+			}
 		}
 
 		/// <summary>
@@ -34,7 +44,7 @@ namespace CardGames
 		/// <param name="myGame">The details of the game -- mostly top card and scores.</param>
 		private static void DrawGame(Snap myGame)
 		{
-			SwinGame.DrawBitMap ("cardsBoard.png", 0, 0);
+			SwinGame.DrawBitmap ("cardsBoard.png", 0, 0);
 
 			// Draw the top card
 			Card top = myGame.TopCard;
